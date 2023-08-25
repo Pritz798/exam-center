@@ -4,7 +4,7 @@ let cities = ["Mumbai", "Pune", "Bangalore", "Hyderabad", "Kolkata", "Chennai", 
 
 addStudent = ()=>{
     let name = document.getElementById('uname');
-    let email = document.getElementById('email');
+    let email = document.getElementById('uemail');
 
     let student = {
         name: name.value,
@@ -17,10 +17,12 @@ addStudent = ()=>{
 
     if(studentExist.length == 0){
         students.push(student);
+        document.getElementById("name").innerHTML = "<b>Name: <b>"+ student.name;
+        document.getElementById("email").innerHTML = "<b>Email: <b>"+student.email;
         getRandomCity();
     }
     else{
-        document.getElementById("city").innerText = "Exam center already allocated for user!!";
+        document.getElementById("city").innerHTML = "<i>Exam center already allocated for user!!<i/>";
         //console.log('Student already allocated!!')
     }
     console.log(students);
@@ -30,7 +32,7 @@ getRandomCity = ()=>{
     let cityIndex = Math.floor(Math.random()*cities.length);
     let city = cities[cityIndex];
     //console.log(city);
-    document.getElementById("city").innerText = "Exam Cenetr: " + city;
+    document.getElementById("city").innerHTML = "<b>Exam Center: <b>" + city;
 
 }
 
